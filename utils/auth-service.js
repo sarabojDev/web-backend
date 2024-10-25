@@ -26,8 +26,7 @@ const comparePassword = async (password, hashed) => {
 const generateToken = (user) => {
     try {
         const payload = {
-            id: user.id, // Include user ID or other information in the payload
-            email: user.emailAddress,
+             ...user
         };
         const secretKey = process.env.JWT_SECRET_KEY || "kGPsIV7TLJZ2alXGqVOJlxg0Zhlgz6gixiBzD6rpebEc9YqT3RKQZaic144EsIkf"; // Use environment variable for secret
         const options = { expiresIn: '7d' }; // Token expiration time
